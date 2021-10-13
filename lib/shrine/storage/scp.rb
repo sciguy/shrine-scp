@@ -51,8 +51,9 @@ class Shrine
         file
       end
 
-      def open(id)
+      def open(id, **options)
         file = scp_down(id)
+        raise Shrine::FileNotFound unless file
         file.tap(&:open)
       end
 
