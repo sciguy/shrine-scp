@@ -91,7 +91,7 @@ class Shrine
         def scp_up(id, tmp_path)
           FileUtils.chmod(permissions, tmp_path)
           destination = path(id)
-          bash "mkdir -p #{File.dirname(file_path)}"
+          bash "mkdir -p #{File.dirname(destination)}"
           destination = "#{ssh_host}:#{destination}" if ssh_host
           scp_transfer(source: tmp_path, destination: destination)
         end
